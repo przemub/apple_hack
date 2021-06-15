@@ -1,0 +1,34 @@
+It is very easy to set up a MITM using mitmproxy and applying it as both "HTTP Proxy" and "HTTPS Secure Proxy" (haha) in System Preferences->Network. 
+Most of the traffic is protected from the traffic interception using a technique called Certificate Pinning, including App Store and iCloud. In result, we cannot use any of these services with the proxy turned on. This works similar to HSTS, which is why we will not be able to access sites using HSTS either.
+Interestingly, the traffic to smoot.apple.com works just fine. This is used by Spotlight to display suggestions, so a request is sent with each and every keystroke. The daemon that sends this is named "parsecd".
+
+So, let's try exploiting the iCloud client!
+
+Frida fails with Failed to attach: unexpected error while starting thread (set_thread_state returned '(os/kern) protection failure').
+
+Notes
+* Amethyst crashes when the https proxy is on, lol.
+
+Adresy zgadzają się z adresami w mapie nawet gdy ladujesz z innego programu.
+
+Links:
+* https://www.netspi.com/blog/technical/four-ways-to-bypass-ios-ssl-verification-and-certificate-pinning/
+* https://github.com/nabla-c0d3/ssl-kill-switch2
+* https://frida.re/docs/frida-cli/
+* https://theevilbit.github.io/posts/dyld_insert_libraries_dylib_injection_in_macos_osx_deep_dive/
+* https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary
+* https://developer.apple.com/news/?id=g9ejcf8y
+* https://apple.stackexchange.com/questions/419229/is-it-safe-to-delete-these-4-files-in-the-folder-called-dyld
+* https://developer.apple.com/forums/thread/108704
+* https://eclecticlight.co/2020/06/25/big-surs-signed-system-volume-added-security-protection/
+* https://notsosecure.com/flutter-based-mac-osx-thick-client-ssl-pinning-bypass/
+* https://lapcatsoftware.com/articles/bigsur.html
+* https://github.com/themattrix/musings/issues/1
+* https://gist.github.com/masklinn/a532dfe55bdeab3d60ab8e46ccc38a68 Launchctl cheatsheet
+* https://takuya-1st.hatenablog.jp/entry/2016/02/16/153258
+* https://lldb.llvm.org/use/map.html
+* https://blog.timac.org/2012/1218-simple-code-injection-using-dyld_insert_libraries/
+* https://github.com/michalmalik/osx-re-101
+* https://developer.apple.com/documentation/security/certificate_key_and_trust_services/trust/evaluating_a_trust_and_parsing_the_result
+* https://developer.apple.com/documentation/security/2980705-sectrustevaluatewitherror
+* https://nabla-c0d3.github.io/blog/2019/05/18/ssl-kill-switch-for-ios12/
